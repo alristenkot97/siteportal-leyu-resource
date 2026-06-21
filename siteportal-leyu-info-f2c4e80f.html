@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼体育 · 运动内容与体验探索</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            background: linear-gradient(145deg, #fce8d9 0%, #fbdac6 35%, #f5c9af 65%, #efb894 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #3a2c24;
+        }
+
+        .page-card {
+            max-width: 960px;
+            width: 100%;
+            background: #fefcf8;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px -10px rgba(160, 100, 60, 0.25), 0 6px 18px rgba(0, 0, 0, 0.05);
+            padding: 2.8rem 3rem;
+            transition: box-shadow 0.2s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .page-card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+        }
+
+        /* 暖色渐变点缀 */
+        .accent-line {
+            display: inline-block;
+            background: linear-gradient(90deg, #dc9a73, #c47a56);
+            height: 4px;
+            width: 60px;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #3a2c24;
+            margin-bottom: 0.2rem;
+        }
+
+        .sub-head {
+            font-size: 1rem;
+            color: #7f6556;
+            margin-top: -0.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            border-left: 3px solid #dba07e;
+            padding-left: 0.9rem;
+        }
+
+        .hero-tagline {
+            background: #f9ede4;
+            padding: 1rem 1.4rem;
+            border-radius: 40px;
+            margin: 1.6rem 0 2.2rem 0;
+            font-size: 1.1rem;
+            color: #4b362b;
+            border: 1px solid #ecd5c0;
+            box-shadow: 0 2px 6px rgba(190, 130, 90, 0.08);
+        }
+
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2.4rem 0 2rem;
+        }
+
+        .col {
+            flex: 1 1 240px;
+        }
+
+        .col h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #5c3f2e;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .col p {
+            font-size: 0.97rem;
+            color: #4d3c31;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: #f2dfd1;
+            padding: 0.1rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #5f3f2c;
+            letter-spacing: 0.3px;
+            margin-right: 0.4rem;
+        }
+
+        .usage-note {
+            background: #fff7f0;
+            border-radius: 30px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0 2.2rem 0;
+            border-left: 6px solid #c47a56;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .usage-note p {
+            font-size: 0.98rem;
+            color: #3e3127;
+        }
+
+        .link-sentence {
+            background: #f5e8dd;
+            padding: 0.9rem 1.6rem;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 0.6rem 0 0.2rem;
+        }
+
+        .link-sentence a {
+            color: #9f5f3a;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #dba882;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .link-sentence a:hover {
+            color: #6e3f25;
+            border-bottom-color: #b56b3e;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1.6rem;
+            margin: 2rem 0 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .faq-mini {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-item {
+            padding: 0.8rem 0 0.2rem 0;
+            border-bottom: 1px solid #e6d5c7;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #4c3427;
+            font-size: 0.95rem;
+        }
+
+        .faq-a {
+            color: #685246;
+            font-size: 0.9rem;
+            margin-top: 0.15rem;
+        }
+
+        .disclaimer {
+            margin-top: 2.6rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed #dcc6b5;
+            font-size: 0.85rem;
+            color: #6d594b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.6rem;
+        }
+
+        .disclaimer span {
+            opacity: 0.7;
+        }
+
+        .dot-sep {
+            padding: 0 0.4rem;
+            color: #ba9a84;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #dbbc9f, transparent);
+            margin: 1.6rem 0 0.8rem;
+        }
+
+        .extra-note {
+            font-size: 0.9rem;
+            color: #6d5543;
+            background: #f4e5d9;
+            border-radius: 30px;
+            padding: 0.6rem 1.4rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-card">
+        <div class="accent-line"></div>
+        <h1>乐鱼体育 · 运动内容的自然延伸</h1>
+        <div class="sub-head">从赛事资讯到日常灵感，围绕体育主题的轻量化内容聚合</div>
+
+        <div class="hero-tagline">
+            ⚡ 无论你是关注赛程、技术分析，还是希望了解运动生活方式，<strong>乐鱼体育</strong>都提供了一种温和的信息入口 —— 它不追赶噱头，而是呈现与体育相关的多元内容。
+        </div>
+
+        <div class="two-column">
+            <div class="col">
+                <h3>🏸 内容亮点</h3>
+                <p><span class="feature-badge">赛事</span> 以主流球类、田径、搏击项目为线索，整理比赛回顾、趋势观察。</p>
+                <p><span class="feature-badge">视角</span> 兼顾专业数据与大众解读，降低阅读门槛，同时保留信息深度。</p>
+                <p><span class="feature-badge">节奏</span> 更新频率稳定，不刻意制造信息焦虑，适合日常浏览。</p>
+            </div>
+            <div class="col">
+                <h3>🧘 使用场景建议</h3>
+                <p>• 通勤时快速浏览当日体育摘要，保持对热门动态的感知。</p>
+                <p>• 赛前查看对阵分析与历史记录，辅助形成自己的观赛判断。</p>
+                <p>• 运动后阅读训练技巧或恢复指南，将内容与个人实践结合。</p>
+            </div>
+        </div>
+
+        <div class="usage-note">
+            <p><strong>📌 关于访问的简单说明</strong> — 网站 <a href="https://siteportal-leyu.com.cn" style="color: #9f5f3a; font-weight: 500; text-decoration: underline; text-underline-offset: 3px;">乐鱼体育</a> 目前以内容聚合与信息展示为主，界面简洁，无需注册即可浏览大部分板块。建议使用主流浏览器以获得良好排版体验。部分交互功能（如评论、收藏）可能需要轻量账户，但并非强制。整体氛围偏向安静阅读，没有弹窗或过度推送，你可以按自己的节奏探索。</p>
+        </div>
+
+        <!-- 自然嵌入链接的句子 -->
+        <div class="link-sentence">
+            🏀 如果你对运动内容感兴趣，不妨从 <a href="https://siteportal-leyu.com.cn">乐鱼体育</a> 开始，看看最近有哪些值得关注的比赛和故事。
+        </div>
+
+        <hr>
+
+        <h3 style="font-weight: 500; color: #4c3427; margin: 0.8rem 0 0.2rem;">❓ 常见疑问摘要</h3>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="faq-q">内容主要覆盖哪些运动？</div>
+                <div class="faq-a">足球、篮球、网球、格斗及综合性赛事，同时包含运动生活类短文。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">是否需要付费？</div>
+                <div class="faq-a">绝大部分内容免费阅读，目前未设置付费墙。未来若有增值服务会明确告知。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">更新频率如何？</div>
+                <div class="faq-a">通常每日有内容更新，周末及大赛期间会适当增加篇幅。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">移动端适配好吗？</div>
+                <div class="faq-a">页面经过响应式设计，手机和平板均可流畅浏览，推荐横屏查看表格类内容。</div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <span>© 介绍页 · 基于公开信息整理</span>
+            <span>内容方向仅供参考 · 实际以站点为准</span>
+        </div>
+
+        <div style="margin-top: 1.2rem; text-align: right;">
+            <span class="extra-note">☕ 温和浏览，保持好奇心</span>
+        </div>
+    </div>
+</body>
+</html>
