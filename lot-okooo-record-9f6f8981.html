@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · okooo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #2d2d2d;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 1rem 2.5rem;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e8eaed;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #1f2937;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 1.2rem auto 2.2rem;
+      color: #4b5563;
+      border-left: 4px solid #e0e7ff;
+      padding-left: 1.2rem;
+      text-align: left;
+      background: #fafbfc;
+      border-radius: 0 12px 12px 0;
+      padding: 1rem 1.4rem;
+      line-height: 1.8;
+    }
+
+    .hero .lead-in {
+      font-size: 0.98rem;
+      color: #6b7280;
+      margin-top: 0.5rem;
+    }
+
+    /* 卡片通用 */
+    .section-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #eceded;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid #f0f1f3;
+      letter-spacing: -0.01em;
+    }
+
+    .section-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1f2937;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .section-card p {
+      margin-bottom: 0.9rem;
+      color: #374151;
+    }
+
+    .section-card ul {
+      margin: 0.8rem 0 1.2rem 1.2rem;
+      padding-left: 0.6rem;
+      list-style: none;
+    }
+
+    .section-card ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #3f4a59;
+    }
+
+    .section-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: 700;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .feature-item {
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 1.2rem 1.2rem 1.5rem;
+      border: 1px solid #eaecf0;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+
+    .feature-item .num {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: #2563eb;
+      border-radius: 30px;
+      padding: 0.1rem 0.7rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #111827;
+    }
+
+    .faq-list {
+      margin-top: 0.6rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eff1f3;
+      padding: 1rem 0 0.8rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1f2937;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .faq-q::before {
+      content: "Q: ";
+      font-weight: 600;
+      color: #3b82f6;
+      margin-right: 0.4rem;
+    }
+
+    .faq-a {
+      color: #4b5563;
+      padding-left: 1.8rem;
+      font-size: 0.96rem;
+    }
+
+    .faq-a a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px dotted #b0c4e8;
+    }
+
+    .faq-a a:hover {
+      border-bottom-style: solid;
+    }
+
+    .link-section {
+      text-align: center;
+      padding: 1.4rem 2rem;
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e4e7eb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .link-section p {
+      color: #374151;
+      margin: 0.3rem 0;
+      font-size: 1rem;
+    }
+
+    .link-section .direct-link {
+      display: inline-block;
+      background: #f0f4ff;
+      padding: 0.4rem 1.8rem;
+      border-radius: 40px;
+      border: 1px solid #d1dbf0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0.6rem 0 0.2rem;
+      transition: background 0.15s ease, border-color 0.15s;
+    }
+
+    .link-section .direct-link a {
+      text-decoration: none;
+      color: #1e40af;
+    }
+
+    .link-section .direct-link:hover {
+      background: #e8edff;
+      border-color: #a7bbec;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e0e3e8;
+      margin: 1.2rem 0;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1.2rem 0.8rem 3rem; }
+      .hero h1 { font-size: 2rem; }
+      .section-card { padding: 1.6rem 1.2rem; }
+      .grid-2 { gap: 1rem; }
+      .hero p { font-size: 1rem; padding: 0.8rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Hero 区 -->
+  <div class="hero">
+    <h1>简明指南 · <span>okooo</span></h1>
+    <p>访问任何站点前，养成快速核对域名、验证连接环境的小习惯，能有效避免信息混淆。<br>以下从实用角度整理了几条关于 <a href="https://lot-okooo.com" style="color:#2563eb; text-decoration: none; border-bottom: 1px dotted #a0b8e0;">okooo</a> 的注意事项与常见问题，适合初次接触或想回顾要点的读者。</p>
+    <div class="lead-in">—— 基于日常使用经验整理，非官方文档 ——</div>
+  </div>
+
+  <!-- 优势区：简洁特点卡片 -->
+  <div class="section-card">
+    <h2>▍ 几个值得留意的特点</h2>
+    <div class="grid-2">
+      <div class="feature-item">
+        <span class="num">01</span>
+        <strong>路径直观</strong>
+        <p>资源组织采用扁平化分类，减少深层跳转，适合快速定位内容。</p>
+      </div>
+      <div class="feature-item">
+        <span class="num">02</span>
+        <strong>响应稳定</strong>
+        <p>基础架构对常用浏览器及移动设备均有适配，加载节奏平稳。</p>
+      </div>
+      <div class="feature-item">
+        <span class="num">03</span>
+        <strong>信息密度适中</strong>
+        <p>页面排版留白充足，关键文字与入口清晰，不易产生视觉疲劳。</p>
+      </div>
+      <div class="feature-item">
+        <span class="num">04</span>
+        <strong>低干扰</strong>
+        <p>没有过度弹窗或自动播放内容，浏览过程可控性较高。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区：从访问提醒角度展开 -->
+  <div class="section-card">
+    <h2>▍ 访问提醒与简明说明</h2>
+    <p>互联网环境多样，不同地区、网络服务商可能影响实际访问体验。在连接 <a href="https://lot-okooo.com" style="color:#2563eb; text-decoration: underline dotted;">okooo</a> 时，有几点值得留意：</p>
+    <ul>
+      <li><strong>域名核对：</strong>请确认地址栏显示为 <code>lot-okooo.com</code>，避免因相似域名造成混淆。</li>
+      <li><strong>连接方式：</strong>建议使用主流浏览器并保持系统时间准确，部分安全证书验证依赖本地时钟。</li>
+      <li><strong>内容时效：</strong>站内信息可能随运营调整发生变化，以实际页面显示为准。</li>
+      <li><strong>本地网络：</strong>如遇加载缓慢，可尝试刷新或切换 Wi-Fi / 移动网络，通常能恢复正常。</li>
+    </ul>
+    <p style="margin-top: 0.8rem;">若遇到页面样式异常或功能按钮无响应，清除浏览器缓存或重启应用往往是最高效的解决方式。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="section-card">
+    <h2>▍ FAQ 摘要 · 常见疑问</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">为什么有时会看到安全提示？</div>
+        <div class="faq-a">通常与本地系统时间偏差或中间网络设备拦截有关。校正设备时间、关闭第三方代理后再试即可。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">移动端和桌面端体验一致吗？</div>
+        <div class="faq-a">核心功能一致，但部分交互元素在窄屏下会折叠或调整位置，可使用横屏或桌面模式查看完整布局。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何确保我访问的是最新版本？</div>
+        <div class="faq-a">直接使用主域名 <a href="https://lot-okooo.com">okooo</a>，避免使用书签或第三方镜像链接。缓存刷新可强制获取更新。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否支持多语言？</div>
+        <div class="faq-a">界面以中文为主体，部分说明区域可能混用英文术语，暂未提供自动翻译开关。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="link-section">
+    <p>如需直接访问，下方链接可直达主站。建议首次使用前先阅读上方提醒。</p>
+    <div class="direct-link">
+      <a href="https://lot-okooo.com">okooo</a>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.92rem; color: #5b687b;">—— 保持域名核对习惯，浏览更安心 ——</p>
+  </div>
+
+  <div class="footer-note">
+    <hr>
+    <p>本页仅为介绍性摘要 · 实际内容以网站为准 · 请合理使用网络资源</p>
+  </div>
+</div>
+</body>
+</html>
